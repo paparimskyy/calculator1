@@ -1,82 +1,33 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class SimpleCalculator
+namespace ConsoleApp1
 {
-    static void Main()
+    internal class Program
     {
-        Console.WriteLine("Простой калькулятор");
-        Console.WriteLine("===================");
-
-        while (true)
+        static void Main()
         {
-            Console.WriteLine("\nВыберите операцию:");
-            Console.WriteLine("1. Сложение (+)");
-            Console.WriteLine("2. Вычитание (-)");
-            Console.WriteLine("3. Умножение (*)");
-            Console.WriteLine("4. Деление (/)");
-            Console.WriteLine("5. Выход");
+            int a, b;
+            Console.WriteLine("Введите первое число");
+            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите второе число");
+            b = int.Parse(Console.ReadLine());
+            Console.WriteLine("Сложение: " + (a + b));
+            Console.WriteLine("Вычитание: " + (a - b));
+            Console.WriteLine("Умножение: " + (a * b));
+            Console.WriteLine("Деление: " + (a / b));
+            Console.WriteLine("Остаток от деления: " + (a % b));
+            Console.WriteLine("Инкремент a: " + (a ++ ));
+            Console.WriteLine("Инкремент b: " + (b ++ ));
+            Console.WriteLine("Декремент a: " + (a -- ));
+            Console.WriteLine("Декремент b: " + (b -- ));
+            Console.WriteLine("Логическое умножение: " + (a & b));
+            Console.WriteLine("Логическое сложение: " + (a | b));
+            Console.WriteLine("Инвертация всех разрядов: " + (~a));
 
-            Console.Write("Ваш выбор (1-5): ");
-            string choice = Console.ReadLine();
-
-            if (choice == "5")
-            {
-                Console.WriteLine("До свидания!");
-                break;
-            }
-
-            if (choice != "1" && choice != "2" && choice != "3" && choice != "4")
-            {
-                Console.WriteLine("Неверный выбор! Попробуйте снова.");
-                continue;
-            }
-
-            try
-            {
-                Console.Write("Введите первое число: ");
-                double num1 = Convert.ToDouble(Console.ReadLine());
-
-                Console.Write("Введите второе число: ");
-                double num2 = Convert.ToDouble(Console.ReadLine());
-
-                double result = 0;
-                string operation = "";
-
-                switch (choice)
-                {
-                    case "1":
-                        result = num1 + num2;
-                        operation = "+";
-                        break;
-                    case "2":
-                        result = num1 - num2;
-                        operation = "-";
-                        break;
-                    case "3":
-                        result = num1 * num2;
-                        operation = "*";
-                        break;
-                    case "4":
-                        if (num2 == 0)
-                        {
-                            Console.WriteLine("Ошибка: деление на ноль!");
-                            continue;
-                        }
-                        result = num1 / num2;
-                        operation = "/";
-                        break;
-                }
-
-                Console.WriteLine($"Результат: {num1} {operation} {num2} = {result}");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Ошибка: введите корректное число!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Произошла ошибка: {ex.Message}");
-            }
         }
     }
-}
+} 
